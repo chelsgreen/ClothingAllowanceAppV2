@@ -19,7 +19,7 @@ namespace ClothingAllowanceAppV2
 
         //Takes user to the selection form 
         private void continuebtn_Click(object sender, EventArgs e)
-        {
+        {              
             this.Hide();
             var myForm = new Selection();
             myForm.Show();
@@ -39,10 +39,5 @@ namespace ClothingAllowanceAppV2
         {
             System.Windows.Forms.Application.Exit();
         }
-
-       
-        
-
-
     }
 }

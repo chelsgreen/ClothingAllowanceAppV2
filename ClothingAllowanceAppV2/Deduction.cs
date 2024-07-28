@@ -10,17 +10,22 @@ using System.Windows.Forms;
 
 namespace ClothingAllowanceAppV2
 {
-    public partial class Stats : Form
+    public partial class Deduction : Form
     {
-        public Stats()
+        public Deduction()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void exitbtn3_Click(object sender, EventArgs e)
+        {
             this.Hide();
-            var myform = new Home();
+            var myform = new Stats();
             myform.Show();
         }
     }

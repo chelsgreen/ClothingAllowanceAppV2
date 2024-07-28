@@ -16,5 +16,21 @@ namespace ClothingAllowanceAppV2
         {
             InitializeComponent();
         }
+
+        //continue button. This takes user to the deduction form
+        private void nextbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var myForm = new Deduction();
+            myForm.Show();
+        }
+
+        private void backbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var myForm = new Home();
+            myForm.Show();
+
+        }
     }
 }

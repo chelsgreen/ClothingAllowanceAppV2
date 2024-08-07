@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClothingAllowanceAppV2;
+using System;
 
 using System.Collections.Generic;
 
@@ -23,37 +24,21 @@ namespace ClothingAllowanceAppV1
 
 
         private string name;
-
         private float allowance;
-
         private bool bonus;
-
         private List<Purchase> purchases;
-
         private string bonusActivity;
-
-
-
         //methods and functions 
-
-
-
         //constructs an allowance holder object  
 
         public AllowanceHolder(string name)
 
         {
-
             this.name = name;
-
             this.purchases = new List<Purchase>();
-
             //Set the initial allowance to $300 
-
             this.allowance = 300;
-
             //set bonus to true 
-
             bonus = true;
 
 

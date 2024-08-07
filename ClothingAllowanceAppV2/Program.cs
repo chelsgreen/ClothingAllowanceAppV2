@@ -14,9 +14,10 @@ namespace ClothingAllowanceAppV2
         [STAThread]
         static void Main()
         {
+            AllowanceManager am = new AllowanceManager();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+            Application.Run(new Home(am));
         }
     }
 }

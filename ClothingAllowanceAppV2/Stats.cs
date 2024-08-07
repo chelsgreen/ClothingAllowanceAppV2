@@ -12,15 +12,17 @@ namespace ClothingAllowanceAppV2
 {
     public partial class Stats : Form
     {
-        public Stats()
+        AllowanceManager am;
+        public Stats(AllowanceManager am)
         {
+            this.am = am;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var myform = new Home();
+            var myform = new Home(am);
             myform.Show();
         }
     }

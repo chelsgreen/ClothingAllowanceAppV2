@@ -12,8 +12,10 @@ namespace ClothingAllowanceAppV2
 {
     public partial class Home : Form
     {
-        public Home()
+        AllowanceManager am;
+        public Home(AllowanceManager am)
         {
+            this.am = am;
             InitializeComponent();
         }
 
@@ -21,7 +23,7 @@ namespace ClothingAllowanceAppV2
         private void continuebtn_Click(object sender, EventArgs e)
         {              
             this.Hide();
-            var myForm = new Selection();
+            var myForm = new Selection(am);
             myForm.Show();
         }
 
@@ -29,7 +31,7 @@ namespace ClothingAllowanceAppV2
         private void statsbtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var myform = new Stats();
+            var myform = new Stats(am);
             myform.Show();
               
         }

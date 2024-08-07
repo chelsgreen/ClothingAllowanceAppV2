@@ -33,15 +33,17 @@ namespace ClothingAllowanceAppV2
             this.label1 = new System.Windows.Forms.Label();
             this.continuebtn3 = new RoundButton();
             this.exitbtn3 = new RoundButton();
+            this.Summaryrtbx = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(343, 180);
+            this.numericUpDown1.Location = new System.Drawing.Point(342, 116);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 1;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label1
             // 
@@ -82,12 +84,22 @@ namespace ClothingAllowanceAppV2
             this.exitbtn3.UseVisualStyleBackColor = false;
             this.exitbtn3.Click += new System.EventHandler(this.exitbtn3_Click);
             // 
+            // Summaryrtbx
+            // 
+            this.Summaryrtbx.Location = new System.Drawing.Point(12, 99);
+            this.Summaryrtbx.Name = "Summaryrtbx";
+            this.Summaryrtbx.Size = new System.Drawing.Size(293, 214);
+            this.Summaryrtbx.TabIndex = 5;
+            this.Summaryrtbx.Text = "                                         Summary\n";
+            this.Summaryrtbx.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
             // Deduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(223)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Summaryrtbx);
             this.Controls.Add(this.exitbtn3);
             this.Controls.Add(this.continuebtn3);
             this.Controls.Add(this.label1);
@@ -105,5 +117,6 @@ namespace ClothingAllowanceAppV2
         private System.Windows.Forms.Label label1;      
         private RoundButton continuebtn3;
         private RoundButton exitbtn3;
+        private System.Windows.Forms.RichTextBox Summaryrtbx;
     }
 }

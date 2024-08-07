@@ -1,14 +1,15 @@
-﻿using System;
+﻿using ClothingAllowanceAppV1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClothingAllowanceAppV1
+namespace ClothingAllowanceAppV2
 
 {
 
-    class AllowanceManager
+    public class AllowanceManager
 
     {
         private List<AllowanceHolder> allowanceHolders = new List<AllowanceHolder>();
@@ -117,6 +118,12 @@ namespace ClothingAllowanceAppV1
 
         }
 
+        //Creates New Allowance Holder
+        public void AddAllowanceHolder(AllowanceHolder newAllowanceHolder)
+        {
+            allowanceHolders.Add(newAllowanceHolder);
+        }
+
         public string AllowanceHolderSummary()
 
         {
@@ -138,5 +145,4 @@ namespace ClothingAllowanceAppV1
         }
 
     }
-
 }

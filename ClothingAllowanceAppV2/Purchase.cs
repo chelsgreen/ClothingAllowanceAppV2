@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ClothingAllowanceAppV1
+namespace ClothingAllowanceAppV2
 
 {
 	public class Purchase

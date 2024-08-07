@@ -33,6 +33,7 @@ namespace ClothingAllowanceAppV2
             this.namecbx = new System.Windows.Forms.ComboBox();
             this.nextbtn = new RoundButton();
             this.backbtn = new RoundButton();
+            this.newholderbtn = new RoundButton();
             this.SuspendLayout();
             // 
             // title2lbl
@@ -49,10 +50,19 @@ namespace ClothingAllowanceAppV2
             // 
             // namecbx
             // 
-            this.namecbx.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.namecbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.namecbx.AutoCompleteCustomSource.AddRange(new string[] {
+            "Nikau",
+            "Hana",
+            "Tia"});
             this.namecbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
+            this.namecbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.namecbx.FormattingEnabled = true;
-            this.namecbx.Location = new System.Drawing.Point(345, 114);
+            this.namecbx.Items.AddRange(new object[] {
+            "Nikau",
+            "Hana",
+            "Tia"});
+            this.namecbx.Location = new System.Drawing.Point(332, 136);
             this.namecbx.Name = "namecbx";
             this.namecbx.Size = new System.Drawing.Size(127, 21);
             this.namecbx.TabIndex = 4;
@@ -85,12 +95,28 @@ namespace ClothingAllowanceAppV2
             this.backbtn.UseVisualStyleBackColor = false;
             this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
+            // newholderbtn
+            // 
+            this.newholderbtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.newholderbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
+            this.newholderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newholderbtn.ForeColor = System.Drawing.Color.Black;
+            this.newholderbtn.Location = new System.Drawing.Point(332, 178);
+            this.newholderbtn.Name = "newholderbtn";
+            this.newholderbtn.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.newholderbtn.Size = new System.Drawing.Size(127, 48);
+            this.newholderbtn.TabIndex = 5;
+            this.newholderbtn.Text = "New Allowance Holder";
+            this.newholderbtn.UseVisualStyleBackColor = false;
+            this.newholderbtn.Click += new System.EventHandler(this.newholderbtn_Click);
+            // 
             // Selection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(223)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.newholderbtn);
             this.Controls.Add(this.namecbx);
             this.Controls.Add(this.nextbtn);
             this.Controls.Add(this.backbtn);
@@ -107,6 +133,8 @@ namespace ClothingAllowanceAppV2
         private System.Windows.Forms.Label title2lbl;
         private RoundButton backbtn;    
         private RoundButton nextbtn;
+        private RoundButton newholderbtn;
         private System.Windows.Forms.ComboBox namecbx;
+      
     }
 }

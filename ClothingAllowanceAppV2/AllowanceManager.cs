@@ -13,19 +13,31 @@ namespace ClothingAllowanceAppV2
 
     {
         private List<AllowanceHolder> allowanceHolders = new List<AllowanceHolder>();
-        readonly private List<string> NAMES = new List<string> { "Nikau", "Hana", "Tia" };
-        public AllowanceManager()
+        private readonly List<string> NAMES = new List<string> { "Nikau", "Hana", "Tia" };
 
+        public AllowanceManager()
         {
-            //foreach loop through names list 
             foreach (var name in NAMES)
             {
                 allowanceHolders.Add(new AllowanceHolder(name));
             }
-            //add new allowance holder to allowance holders list 
         }
 
+        public AllowanceHolder GetAllowanceHolderByName(string name)
+        {
+            return allowanceHolders.FirstOrDefault(holder => holder.GetName().Equals(name, StringComparison.OrdinalIgnoreCase));
+        }
 
+        public string GetAllowanceHolderSummary(string name)
+        {
+            var holder = GetAllowanceHolderByName(name);
+            return holder != null ? holder.AllowanceHolderSummary() : "Allowance holder not found.";
+        }
+
+        internal string GetAllowanceHolderSummary(object selectedName)
+        {
+            throw new NotImplementedException();
+        }
 
         public int CalculateAvailableAllowance(string searchName)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClothingAllowanceAppV1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,34 +13,60 @@ namespace ClothingAllowanceAppV2
 {
     public partial class Selection : Form
     {
-        AllowanceManager am;
+        private AllowanceManager am;
+
+
         public Selection(AllowanceManager am)
         {
             this.am = am;
             InitializeComponent();
         }
 
-        //continue button. This takes user to the deduction form
+        // Continue button. This takes the user to the deduction form
         private void nextbtn_Click(object sender, EventArgs e)
         {
-         // am.AddAllowanceHolder(new AllowanceHolder(namecbx.SelectedIndex));
-            this.Hide();
-            var myForm = new Deduction(am);
-            myForm.Show();
-        }
+            if (namecbx.SelectedIndex >= 0)
+            {
+                // Retrieve the selected name from the ComboBox
+                string selectedName = namecbx.SelectedItem.ToString();
 
+                // Check if the selected name already exists in the AllowanceManager
+                if (am.GetAllowanceHolderByName(selectedName) == null)
+                {
+                    // Create a new AllowanceHolder with the selected name
+                    AllowanceHolder newHolder = new AllowanceHolder(selectedName);
+
+                    // Add the new holder to the AllowanceManager
+                    am.AddAllowanceHolder(newHolder);
+                }
+
+                // Proceed to the Deduction form with the selected name
+                this.Hide();
+                var myForm = new Deduction(am, selectedName);
+                myForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a name from the list.");
+            }
+        }
 
         private void backbtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             var myForm = new Home(am);
             myForm.Show();
-
         }
+
         private void newholderbtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            
+            // Additional code to handle new holder creation if needed
+        }
+
+        private void namecbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Handle ComboBox selection change if needed
         }
     }
 }

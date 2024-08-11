@@ -6,19 +6,40 @@ namespace ClothingAllowanceAppV2
     public partial class Deduction : Form
     {
         AllowanceManager am;
+        private string selectedName;
 
-        public Deduction(AllowanceManager am)
+        public Deduction(AllowanceManager am, string selectedName)
         {
             InitializeComponent();
             this.am = am;
-           // Summaryrtbx.Text = am.AllowanceHolderSummary();
+            this.selectedName = selectedName;
+
+
+
+            Summaryrtbx.Text = am.AllowanceHolderSummary();
         }
 
         //Deducts the allowance amount from the holder then takes user back to home screen
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            int deductionAmount = (int)deductionnud.Value;
+
+            // Call DeductAllowance method with required parameters
+            string result = am.DeductAllowance(selectedName, deductionAmount, DateTime.Now, "Deduction Description");
+
+            // Update the summary display
+            Summaryrtbx.Text = am.GetAllowanceHolderSummary(selectedName);
+
+            // Show confirmation message
+            MessageBox.Show($"You have deducted ${deductionAmount} from the allowance.", "Deduction Confirmation");
+
+            // Navigate to the Home form
+            this.Hide();
+            Home myNewForm = new Home(am);
+            myNewForm.Closed += (s, args) => this.Close();
+            myNewForm.Show();
         }
+
 
         private void exitbtn3_Click(object sender, EventArgs e)
         {
@@ -35,7 +56,9 @@ namespace ClothingAllowanceAppV2
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-
+            //stops user from entering a value that is higher than $300 
+            deductionnud.Maximum = 300;
+            deductionnud.Minimum = 0;
         }
     }
 }

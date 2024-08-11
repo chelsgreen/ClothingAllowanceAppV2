@@ -29,21 +29,21 @@ namespace ClothingAllowanceAppV2
         /// </summary>
         private void InitializeComponent()
         {
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.deductionnud = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.continuebtn3 = new RoundButton();
             this.exitbtn3 = new RoundButton();
             this.Summaryrtbx = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deductionnud)).BeginInit();
             this.SuspendLayout();
             // 
-            // numericUpDown1
+            // deductionnud
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(342, 116);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.deductionnud.Location = new System.Drawing.Point(386, 169);
+            this.deductionnud.Name = "deductionnud";
+            this.deductionnud.Size = new System.Drawing.Size(120, 20);
+            this.deductionnud.TabIndex = 1;
+            this.deductionnud.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label1
             // 
@@ -103,17 +103,17 @@ namespace ClothingAllowanceAppV2
             this.Controls.Add(this.exitbtn3);
             this.Controls.Add(this.continuebtn3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.deductionnud);
             this.Name = "Deduction";
             this.Text = "Deduction";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deductionnud)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown deductionnud;
         private System.Windows.Forms.Label label1;      
         private RoundButton continuebtn3;
         private RoundButton exitbtn3;

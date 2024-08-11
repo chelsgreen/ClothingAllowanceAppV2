@@ -66,6 +66,7 @@ namespace ClothingAllowanceAppV2
             this.namecbx.Name = "namecbx";
             this.namecbx.Size = new System.Drawing.Size(127, 21);
             this.namecbx.TabIndex = 4;
+            this.namecbx.SelectedIndexChanged += new System.EventHandler(this.namecbx_SelectedIndexChanged);
             // 
             // nextbtn
             // 

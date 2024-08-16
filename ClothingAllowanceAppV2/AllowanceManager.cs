@@ -13,7 +13,7 @@ namespace ClothingAllowanceAppV2
 
     {
         private List<AllowanceHolder> allowanceHolders = new List<AllowanceHolder>();
-        private readonly List<string> NAMES = new List<string> { "Nikau", "Hana", "Tia" };
+        private readonly List<string> NAMES = new List<string> { "Nikau Ranui", "Hana Ranui", "Tia Ranui" };
 
         public AllowanceManager()
         {
@@ -22,6 +22,18 @@ namespace ClothingAllowanceAppV2
                 allowanceHolders.Add(new AllowanceHolder(name));
             }
         }
+
+        public List<string> GetAllHolderNames()
+        {
+            return allowanceHolders.Select(h => h.GetName()).ToList();
+        }
+
+
+        public List<string> AllHolderNames()
+        {
+            return allowanceHolders.Select(h => h.GetName()).ToList();
+        }
+
 
         public AllowanceHolder GetAllowanceHolderByName(string name)
         {

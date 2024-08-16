@@ -25,5 +25,10 @@ namespace ClothingAllowanceAppV2
             var myform = new Home(am);
             myform.Show();
         }
+
+        private void statsSummaryrtbx_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

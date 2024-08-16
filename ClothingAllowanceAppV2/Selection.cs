@@ -20,6 +20,15 @@ namespace ClothingAllowanceAppV2
         {
             this.am = am;
             InitializeComponent();
+            PopulateComboBox();
+        }
+        private void PopulateComboBox()
+        {
+            // Get all holder names from AllowanceManager
+            var names = am.GetAllHolderNames();
+
+            // Set the ComboBox data source
+            namecbx.DataSource = names;
         }
 
         // Continue button. This takes the user to the deduction form
@@ -58,15 +67,26 @@ namespace ClothingAllowanceAppV2
             myForm.Show();
         }
 
+        //takes the user to the new holder forn
         private void newholderbtn_Click(object sender, EventArgs e)
         {
+            var newHolderForm = new NewHolder(am);
+            newHolderForm.FormClosed += (s, args) => PopulateComboBox(); // Refresh ComboBox after NewHolder closes
             this.Hide();
-            // Additional code to handle new holder creation if needed
+            newHolderForm.Show();
         }
+           
+        
 
         private void namecbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Handle ComboBox selection change if needed
+            
+        }
+
+        private void bonuselectioncbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

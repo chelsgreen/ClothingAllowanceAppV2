@@ -19,13 +19,18 @@ namespace ClothingAllowanceAppV2
             Summaryrtbx.Text = am.AllowanceHolderSummary();
         }
 
+        public Deduction(AllowanceManager am)
+        {
+            this.am = am;
+        }
+
         //Deducts the allowance amount from the holder then takes user back to home screen
         private void button1_Click(object sender, EventArgs e)
         {
             int deductionAmount = (int)deductionnud.Value;
 
             // Call DeductAllowance method with required parameters
-            string result = am.DeductAllowance(selectedName, deductionAmount, DateTime.Now, "Deduction Description");
+            string result = am.DeductAllowance(selectedName, deductionAmount, DateTime.Now,"clothing description");
 
             // Update the summary display
             Summaryrtbx.Text = am.GetAllowanceHolderSummary(selectedName);

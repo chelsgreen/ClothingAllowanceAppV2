@@ -39,7 +39,7 @@ namespace ClothingAllowanceAppV2
             // 
             // deductionnud
             // 
-            this.deductionnud.Location = new System.Drawing.Point(386, 169);
+            this.deductionnud.Location = new System.Drawing.Point(347, 308);
             this.deductionnud.Name = "deductionnud";
             this.deductionnud.Size = new System.Drawing.Size(120, 20);
             this.deductionnud.TabIndex = 1;
@@ -86,7 +86,7 @@ namespace ClothingAllowanceAppV2
             // 
             // Summaryrtbx
             // 
-            this.Summaryrtbx.Location = new System.Drawing.Point(12, 99);
+            this.Summaryrtbx.Location = new System.Drawing.Point(260, 68);
             this.Summaryrtbx.Name = "Summaryrtbx";
             this.Summaryrtbx.Size = new System.Drawing.Size(293, 214);
             this.Summaryrtbx.TabIndex = 5;

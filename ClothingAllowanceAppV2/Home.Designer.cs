@@ -110,6 +110,7 @@ namespace ClothingAllowanceAppV2
             this.Controls.Add(this.continuebtn);
             this.Name = "Home";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

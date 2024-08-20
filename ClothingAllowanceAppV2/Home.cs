@@ -41,5 +41,10 @@ namespace ClothingAllowanceAppV2
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

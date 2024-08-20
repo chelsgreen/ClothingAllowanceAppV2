@@ -23,27 +23,45 @@ namespace ClothingAllowanceAppV2
 
         private void continuebtn4_Click(object sender, EventArgs e)
         {
-            string newHolderName = newNametbx.Text.Trim();
-            if (!string.IsNullOrEmpty(newHolderName))
-            {
-                AllowanceHolder newHolder = new AllowanceHolder(newHolderName);
-                am.AddAllowanceHolder(newHolder); // Add new holder to AllowanceManager
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
 
-                // Close the form to return to Selection form
+            //Ensures the user enters both first and last name
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
+            {
+                // Display a message box to the user
+                MessageBox.Show("Please enter both first and last names.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+
+            // Combine the first and last names with a space between them
+            string fullName = firstName + " " + lastName;
+
+            // Create a new AllowanceHolder instance with the combined name
+            AllowanceHolder newHolder = new AllowanceHolder(fullName);
+           
+            AllowanceManager manager = new AllowanceManager();           
+            // Add the new allowance holder
+            am.AddAllowanceHolder(newHolder); // Add new holder to AllowanceManager
+           
+
+            //Clear the text boxes after adding the holder
+            txtFirstName.Clear();
+            txtLastName.Clear();
+
+          
                 this.Hide();
                 var myForm = new Selection(am);
                 myForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please enter a valid name.");
-            }
+           
         }
 
-        private void newNametbx_TextChanged(object sender, EventArgs e)
+        //takes user back to home form
+        private void exitbtn_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var myForm = new Home(am);
+            myForm.Show();
         }
-
     }
 }

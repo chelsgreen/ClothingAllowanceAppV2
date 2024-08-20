@@ -30,13 +30,13 @@ namespace ClothingAllowanceAppV2
         private void InitializeComponent()
         {
             this.title2lbl = new System.Windows.Forms.Label();
-            this.namecbx = new System.Windows.Forms.ComboBox();
             this.newholderbtn = new RoundButton();
             this.nextbtn = new RoundButton();
             this.backbtn = new RoundButton();
             this.allowanceholderlbl = new System.Windows.Forms.Label();
             this.bonuselectioncbx = new System.Windows.Forms.ComboBox();
             this.bonusselectionlbl = new System.Windows.Forms.Label();
+            this.namecbx = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // title2lbl
@@ -50,26 +50,6 @@ namespace ClothingAllowanceAppV2
             this.title2lbl.TabIndex = 1;
             this.title2lbl.Text = "Please select an option";
             this.title2lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // namecbx
-            // 
-            this.namecbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.namecbx.AutoCompleteCustomSource.AddRange(new string[] {
-            "Nikau",
-            "Hana",
-            "Tia"});
-            this.namecbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
-            this.namecbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.namecbx.FormattingEnabled = true;
-            this.namecbx.Items.AddRange(new object[] {
-            "Nikau Ranui",
-            "Hana Ranui",
-            "Tia Ranui"});
-            this.namecbx.Location = new System.Drawing.Point(332, 136);
-            this.namecbx.Name = "namecbx";
-            this.namecbx.Size = new System.Drawing.Size(127, 21);
-            this.namecbx.TabIndex = 4;
-            this.namecbx.SelectedIndexChanged += new System.EventHandler(this.namecbx_SelectedIndexChanged);
             // 
             // newholderbtn
             // 
@@ -147,17 +127,27 @@ namespace ClothingAllowanceAppV2
             this.bonusselectionlbl.TabIndex = 8;
             this.bonusselectionlbl.Text = "Please select a bonus activity";
             // 
+            // namecbx
+            // 
+            this.namecbx.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.namecbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
+            this.namecbx.FormattingEnabled = true;
+            this.namecbx.Location = new System.Drawing.Point(332, 135);
+            this.namecbx.Name = "namecbx";
+            this.namecbx.Size = new System.Drawing.Size(127, 21);
+            this.namecbx.TabIndex = 9;
+            // 
             // Selection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(223)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.namecbx);
             this.Controls.Add(this.bonusselectionlbl);
             this.Controls.Add(this.bonuselectioncbx);
             this.Controls.Add(this.allowanceholderlbl);
             this.Controls.Add(this.newholderbtn);
-            this.Controls.Add(this.namecbx);
             this.Controls.Add(this.nextbtn);
             this.Controls.Add(this.backbtn);
             this.Controls.Add(this.title2lbl);
@@ -174,9 +164,9 @@ namespace ClothingAllowanceAppV2
         private RoundButton backbtn;    
         private RoundButton nextbtn;
         private RoundButton newholderbtn;
-        private System.Windows.Forms.ComboBox namecbx;
         private System.Windows.Forms.Label allowanceholderlbl;
         private System.Windows.Forms.ComboBox bonuselectioncbx;
         private System.Windows.Forms.Label bonusselectionlbl;
+        private System.Windows.Forms.ComboBox namecbx;
     }
 }

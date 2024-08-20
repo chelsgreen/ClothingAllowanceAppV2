@@ -65,6 +65,7 @@ namespace ClothingAllowanceAppV2
             this.allowancesummarycbx.Name = "allowancesummarycbx";
             this.allowancesummarycbx.Size = new System.Drawing.Size(334, 21);
             this.allowancesummarycbx.TabIndex = 2;
+            this.allowancesummarycbx.SelectedIndexChanged += new System.EventHandler(this.allowancesummarycbx_SelectedIndexChanged);
             // 
             // title4lbl
             // 

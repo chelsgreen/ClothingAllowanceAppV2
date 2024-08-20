@@ -73,10 +73,4 @@ public class RoundButton : Button
         return path;
     }
 
-  
-
-    protected override void OnPaintBackground(PaintEventArgs pevent)
-    {
-        // Do not paint background to achieve transparency
-    }
 }

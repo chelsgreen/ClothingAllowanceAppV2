@@ -30,5 +30,10 @@ namespace ClothingAllowanceAppV2
         {
             
         }
+
+        private void allowancesummarycbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            statsSummaryrtbx.Text = am.GetAllowanceHolderSummary(allowancesummarycbx.Text);
+        }
     }
 }

@@ -111,8 +111,11 @@ namespace ClothingAllowanceAppV2
             // exitbtn
             // 
             this.exitbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(216)))), ((int)(((byte)(220)))));
+            this.exitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitbtn.ForeColor = System.Drawing.Color.Black;
             this.exitbtn.Location = new System.Drawing.Point(12, 390);
             this.exitbtn.Name = "exitbtn";
+            this.exitbtn.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.exitbtn.Size = new System.Drawing.Size(127, 48);
             this.exitbtn.TabIndex = 8;
             this.exitbtn.Text = "Exit";

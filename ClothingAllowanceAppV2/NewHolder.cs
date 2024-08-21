@@ -19,6 +19,9 @@ namespace ClothingAllowanceAppV2
         {
             this.am = am;
             InitializeComponent();
+
+            txtFirstName.KeyPress += txtFirstName_KeyPress;
+            txtLastName.KeyPress += txtLastName_KeyPress;
         }
 
         private void continuebtn4_Click(object sender, EventArgs e)
@@ -55,6 +58,27 @@ namespace ClothingAllowanceAppV2
                 myForm.Show();
            
         }
+
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is not a letter or a control key (like backspace)
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If it isn't, prevent the character from being entered
+                e.Handled = true;
+            }
+        }
+
+        private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is not a letter or a control key (like backspace)
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If it isn't, prevent the character from being entered
+                e.Handled = true;
+            }
+        }
+
 
         //takes user back to home form
         private void exitbtn_Click(object sender, EventArgs e)

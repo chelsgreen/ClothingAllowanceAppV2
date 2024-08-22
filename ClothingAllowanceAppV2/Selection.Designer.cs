@@ -141,7 +141,7 @@ namespace ClothingAllowanceAppV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(223)))), ((int)(((byte)(242)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(218)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.namecbx);
             this.Controls.Add(this.bonusselectionlbl);

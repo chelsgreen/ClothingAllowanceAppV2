@@ -14,7 +14,7 @@ namespace ClothingAllowanceAppV2
     {
         private List<AllowanceHolder> allowanceHolders = new List<AllowanceHolder>();
         private readonly List<string> NAMES = new List<string> { "Nikau Ranui", "Hana Ranui", "Tia Ranui" };
-
+        private readonly List<string> BONUS = new List<string> { "Splash Planet", "Bowling", "Movies" };
         public AllowanceManager()
         {
             foreach (var name in NAMES)
@@ -23,9 +23,16 @@ namespace ClothingAllowanceAppV2
             }
         }
 
+        //get the name of the allowance holder
         public List<string> GetAllHolderNames()
         {
             return allowanceHolders.Select(h => h.GetName()).ToList();
+        }
+
+        //get the name of the bonus
+        public List<string> GetBonus()
+        {
+            return BONUS;
         }
 
 
@@ -88,7 +95,7 @@ namespace ClothingAllowanceAppV2
 
 
         //method that will deduct allowance that user wants to spend 
-        public string DeductAllowance(string searchName, int amount, DateTime date, string description)
+        public string DeductAllowance(string searchName, int amount, DateTime date, string bonus, string description)
 
         {
             foreach (AllowanceHolder allowanceHolder in allowanceHolders)

@@ -7,16 +7,17 @@ namespace ClothingAllowanceAppV2
     {
         AllowanceManager am;
         private string selectedName;
-
-        public Deduction(AllowanceManager am, string selectedName)
+        private string selectedBonus;
+        public Deduction(AllowanceManager am, string selectedName, string selectedBonus)
         {
             InitializeComponent();
             this.am = am;
             this.selectedName = selectedName;
-
+            this.selectedBonus = selectedBonus;
 
 
             Summaryrtbx.Text = am.AllowanceHolderSummary();
+
         }
 
         public Deduction(AllowanceManager am)
@@ -30,7 +31,14 @@ namespace ClothingAllowanceAppV2
             int deductionAmount = (int)deductionnud.Value;
 
             // Call DeductAllowance method with required parameters
-            string result = am.DeductAllowance(selectedName, deductionAmount, DateTime.Now,"clothing description");
+            string result = am.DeductAllowance(selectedName, deductionAmount, DateTime.Now, selectedBonus, "Clothing Price $");
+
+            // Set the bonus activity for the selected holder
+            var allowanceHolder = am.GetAllowanceHolderByName(selectedName);
+            if (allowanceHolder != null)
+            {
+                allowanceHolder.SetBonusActivity(selectedBonus);
+            }
 
             // Update the summary display
             Summaryrtbx.Text = am.GetAllowanceHolderSummary(selectedName);

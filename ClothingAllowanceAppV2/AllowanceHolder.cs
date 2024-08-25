@@ -34,6 +34,7 @@ namespace ClothingAllowanceAppV1
 
         {
             this.name = name;
+            this.bonusActivity = bonusActivity;
             this.purchases = new List<Purchase>();
             //Set the initial allowance to $300 
             this.allowance = 300;

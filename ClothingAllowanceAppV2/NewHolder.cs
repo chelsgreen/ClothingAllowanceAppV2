@@ -28,6 +28,7 @@ namespace ClothingAllowanceAppV2
         {
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
+            
 
             //Ensures the user enters both first and last name
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
@@ -39,6 +40,7 @@ namespace ClothingAllowanceAppV2
 
             // Combine the first and last names with a space between them
             string fullName = firstName + " " + lastName;
+            
 
             // Create a new AllowanceHolder instance with the combined name
             AllowanceHolder newHolder = new AllowanceHolder(fullName);

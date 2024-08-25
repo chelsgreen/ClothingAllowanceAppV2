@@ -21,6 +21,7 @@ namespace ClothingAllowanceAppV2
             this.am = am;
             InitializeComponent();
             PopulateComboBox();
+            PopulateComboBox2();
         }
         private void PopulateComboBox()
         {
@@ -29,11 +30,20 @@ namespace ClothingAllowanceAppV2
 
             // Set the ComboBox data source
             namecbx.DataSource = names;
+
+           
+        }
+        private void PopulateComboBox2()
+        {
+            var bonusactivity = am.GetBonus();
+
+            bonuselectioncbx.DataSource = bonusactivity;
         }
 
         // Continue button. This takes the user to the deduction form
         private void nextbtn_Click(object sender, EventArgs e)
         {
+            string selectedBonus = bonuselectioncbx.SelectedItem.ToString();
             if (namecbx.SelectedIndex >= 0)
             {
                 // Retrieve the selected name from the ComboBox
@@ -51,7 +61,7 @@ namespace ClothingAllowanceAppV2
 
                 // Proceed to the Deduction form with the selected name
                 this.Hide();
-                var myForm = new Deduction(am, selectedName);
+                var myForm = new Deduction(am, selectedName, selectedBonus);
                 myForm.Show();
             }
             else

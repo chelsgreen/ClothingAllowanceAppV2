@@ -107,9 +107,12 @@ namespace ClothingAllowanceAppV2
             // bonuselectioncbx
             // 
             this.bonuselectioncbx.AutoCompleteCustomSource.AddRange(new string[] {
-            "Splash Planet"});
+            "Splash Planet",
+            "Bowling",
+            "Movie"});
             this.bonuselectioncbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
-            this.bonuselectioncbx.ForeColor = System.Drawing.Color.Yellow;
+            this.bonuselectioncbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bonuselectioncbx.ForeColor = System.Drawing.Color.Black;
             this.bonuselectioncbx.FormattingEnabled = true;
             this.bonuselectioncbx.Location = new System.Drawing.Point(332, 199);
             this.bonuselectioncbx.Name = "bonuselectioncbx";
@@ -131,6 +134,7 @@ namespace ClothingAllowanceAppV2
             // 
             this.namecbx.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.namecbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
+            this.namecbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.namecbx.FormattingEnabled = true;
             this.namecbx.Location = new System.Drawing.Point(332, 135);
             this.namecbx.Name = "namecbx";

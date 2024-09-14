@@ -34,6 +34,9 @@ namespace ClothingAllowanceAppV2
             this.continuebtn3 = new RoundButton();
             this.exitbtn3 = new RoundButton();
             this.Summaryrtbx = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.deductionnud)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,12 +96,40 @@ namespace ClothingAllowanceAppV2
             this.Summaryrtbx.Text = "                                         Summary\n";
             this.Summaryrtbx.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(253, 308);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Enter the amount";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(308, 353);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(186, 353);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Enter date of Purchase";
+            // 
             // Deduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(218)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Summaryrtbx);
             this.Controls.Add(this.exitbtn3);
             this.Controls.Add(this.continuebtn3);
@@ -118,5 +149,8 @@ namespace ClothingAllowanceAppV2
         private RoundButton continuebtn3;
         private RoundButton exitbtn3;
         private System.Windows.Forms.RichTextBox Summaryrtbx;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label3;
     }
 }

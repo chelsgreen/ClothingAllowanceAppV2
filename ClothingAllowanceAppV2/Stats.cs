@@ -17,6 +17,13 @@ namespace ClothingAllowanceAppV2
         {
             this.am = am;
             InitializeComponent();
+            //populate combo box with allowance holder names
+            foreach (var name in am.GetAllHolderNames())
+            {
+                allowancesummarycbx.Items.Add(name);
+            }
+
+            allowancesummarycbx.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ClothingAllowanceAppV2
 
@@ -15,6 +16,7 @@ namespace ClothingAllowanceAppV2
         private List<AllowanceHolder> allowanceHolders = new List<AllowanceHolder>();
         private readonly List<string> NAMES = new List<string> { "Nikau Ranui", "Hana Ranui", "Tia Ranui" };
         private readonly List<string> BONUS = new List<string> { "Splash Planet", "Bowling", "Movies" };
+        private int selectedYear = DateTime.Now.Year;
         public AllowanceManager()
         {
             foreach (var name in NAMES)
@@ -35,7 +37,12 @@ namespace ClothingAllowanceAppV2
             return BONUS;
         }
 
+        public int GetSelectYear()
+        {
 
+            return selectedYear;
+        
+        }
         public List<string> AllHolderNames()
         {
             return allowanceHolders.Select(h => h.GetName()).ToList();
@@ -50,7 +57,7 @@ namespace ClothingAllowanceAppV2
         public string GetAllowanceHolderSummary(string name)
         {
             var holder = GetAllowanceHolderByName(name);
-            return holder != null ? holder.AllowanceHolderSummary() : "Allowance holder not found.";
+            return holder != null ? holder.AllowanceHolderSummary(selectedYear) : "Allowance holder not found.";
         }
 
         internal string GetAllowanceHolderSummary(object selectedName)
@@ -103,9 +110,9 @@ namespace ClothingAllowanceAppV2
                 //only deduct allowance if the user has enough otherwise promit a message 
                 if (allowanceHolder.GetName().Equals(searchName))
                 {
-                    if (allowanceHolder.AvailableAllowance(amount))
+                    if (allowanceHolder.AvailableAllowance(amount, selectedYear))
                     {
-                        allowanceHolder.DeductFromAllowance(amount, date, description);
+                        allowanceHolder.DeductFromAllowance(amount, date, description, selectedYear);
                         return $"Deducted {amount} from {searchName}'s allowance. Remaining allowance: {allowanceHolder.GetAllowance()}";
                     }
 
@@ -149,12 +156,18 @@ namespace ClothingAllowanceAppV2
 
         }
 
+        public void SetYear(int selectedYear)
+        {
+            this.selectedYear = selectedYear;
+        }
+
         //Creates New Allowance Holder
         public void AddAllowanceHolder(AllowanceHolder newAllowanceHolder)
         {
             allowanceHolders.Add(newAllowanceHolder);
         }
 
+   
         public string AllowanceHolderSummary()
 
         {
@@ -167,7 +180,7 @@ namespace ClothingAllowanceAppV2
 
             {
 
-                allowanceHolderSummary += allowanceHolder.AllowanceHolderSummary();
+                allowanceHolderSummary += allowanceHolder.AllowanceHolderSummary(selectedYear);
 
             }
 

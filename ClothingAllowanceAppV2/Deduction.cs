@@ -15,7 +15,7 @@ namespace ClothingAllowanceAppV2
             this.selectedName = selectedName;
             this.selectedBonus = selectedBonus;
 
-
+            dateTimePicker1.Value = new DateTime(am.GetSelectYear(),01,01);
             Summaryrtbx.Text = am.AllowanceHolderSummary();
 
         }
@@ -31,7 +31,7 @@ namespace ClothingAllowanceAppV2
             int deductionAmount = (int)deductionnud.Value;
 
             // Call DeductAllowance method with required parameters
-            string result = am.DeductAllowance(selectedName, deductionAmount, DateTime.Now, selectedBonus, "Clothing Price $");
+            string result = am.DeductAllowance(selectedName, deductionAmount, dateTimePicker1.Value, selectedBonus, "Clothing Price $");
 
             // Set the bonus activity for the selected holder
             var allowanceHolder = am.GetAllowanceHolderByName(selectedName);

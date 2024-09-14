@@ -18,6 +18,15 @@ namespace ClothingAllowanceAppV2
 			this.amount = amount;
 		}
 
+		public DateTime GetDate()
+		{
+			return datePurchased;
+		}
+
+		public float GetAmount()
+		{
+			return amount;
+		}
 		public string purchaseSummary()
 
 		{

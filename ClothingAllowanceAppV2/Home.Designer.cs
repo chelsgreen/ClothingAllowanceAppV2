@@ -30,11 +30,12 @@ namespace ClothingAllowanceAppV2
         private void InitializeComponent()
         {
             this.titlelbl = new System.Windows.Forms.Label();
+            this.homerightpbx = new System.Windows.Forms.PictureBox();
+            this.homeleftpbx = new System.Windows.Forms.PictureBox();
+            this.selectDatedpt = new System.Windows.Forms.DateTimePicker();
             this.exitbtn = new RoundButton();
             this.statsbtn = new RoundButton();
             this.continuebtn = new RoundButton();
-            this.homerightpbx = new System.Windows.Forms.PictureBox();
-            this.homeleftpbx = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.homerightpbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeleftpbx)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +51,32 @@ namespace ClothingAllowanceAppV2
             this.titlelbl.TabIndex = 4;
             this.titlelbl.Text = "Clothing Allowance App";
             this.titlelbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // homerightpbx
+            // 
+            this.homerightpbx.Image = global::ClothingAllowanceAppV2.Properties.Resources.homepage;
+            this.homerightpbx.Location = new System.Drawing.Point(523, 89);
+            this.homerightpbx.Name = "homerightpbx";
+            this.homerightpbx.Size = new System.Drawing.Size(245, 252);
+            this.homerightpbx.TabIndex = 5;
+            this.homerightpbx.TabStop = false;
+            // 
+            // homeleftpbx
+            // 
+            this.homeleftpbx.Image = global::ClothingAllowanceAppV2.Properties.Resources.homepage;
+            this.homeleftpbx.Location = new System.Drawing.Point(30, 90);
+            this.homeleftpbx.Name = "homeleftpbx";
+            this.homeleftpbx.Size = new System.Drawing.Size(245, 251);
+            this.homeleftpbx.TabIndex = 6;
+            this.homeleftpbx.TabStop = false;
+            // 
+            // selectDatedpt
+            // 
+            this.selectDatedpt.Location = new System.Drawing.Point(403, 358);
+            this.selectDatedpt.Name = "selectDatedpt";
+            this.selectDatedpt.Size = new System.Drawing.Size(200, 20);
+            this.selectDatedpt.TabIndex = 7;
+            this.selectDatedpt.ValueChanged += new System.EventHandler(this.selectDatedpt_ValueChanged);
             // 
             // exitbtn
             // 
@@ -102,30 +129,13 @@ namespace ClothingAllowanceAppV2
             this.continuebtn.UseVisualStyleBackColor = false;
             this.continuebtn.Click += new System.EventHandler(this.continuebtn_Click);
             // 
-            // homerightpbx
-            // 
-            this.homerightpbx.Image = global::ClothingAllowanceAppV2.Properties.Resources.homepage;
-            this.homerightpbx.Location = new System.Drawing.Point(523, 89);
-            this.homerightpbx.Name = "homerightpbx";
-            this.homerightpbx.Size = new System.Drawing.Size(245, 252);
-            this.homerightpbx.TabIndex = 5;
-            this.homerightpbx.TabStop = false;
-            // 
-            // homeleftpbx
-            // 
-            this.homeleftpbx.Image = global::ClothingAllowanceAppV2.Properties.Resources.homepage;
-            this.homeleftpbx.Location = new System.Drawing.Point(30, 90);
-            this.homeleftpbx.Name = "homeleftpbx";
-            this.homeleftpbx.Size = new System.Drawing.Size(245, 251);
-            this.homeleftpbx.TabIndex = 6;
-            this.homeleftpbx.TabStop = false;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(218)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.selectDatedpt);
             this.Controls.Add(this.homeleftpbx);
             this.Controls.Add(this.homerightpbx);
             this.Controls.Add(this.titlelbl);
@@ -150,5 +160,6 @@ namespace ClothingAllowanceAppV2
         private System.Windows.Forms.Label titlelbl;
         private System.Windows.Forms.PictureBox homerightpbx;
         private System.Windows.Forms.PictureBox homeleftpbx;
+        private System.Windows.Forms.DateTimePicker selectDatedpt;
     }
 }

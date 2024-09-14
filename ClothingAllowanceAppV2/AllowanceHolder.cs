@@ -1,14 +1,11 @@
 ﻿using ClothingAllowanceAppV2;
 using System;
 using System.Collections.Generic;
-
 using System.Globalization;
-
 using System.Linq;
-
 using System.Text;
-
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ClothingAllowanceAppV1
 
@@ -19,9 +16,6 @@ namespace ClothingAllowanceAppV1
     {
 
         //attributes or fields 
-
-
-
         private string name;
         private float allowance;
         private bool bonus;
@@ -85,10 +79,10 @@ namespace ClothingAllowanceAppV1
 
         //Determines if the user is still intitiled to an allowance  
 
-        public void SetBonus()
+        public void SetBonus(int selectedYear)
         {
             //if user is bellow $50 
-            if (allowance <= 50)
+            if (CalculateAllowance(selectedYear) <= 50)
 
             {
                 bonus = false;
@@ -105,10 +99,10 @@ namespace ClothingAllowanceAppV1
 
         //calculates the total that the user has spent  
 
-        public float CalculateCost()
+        public float CalculateAllowance(int selectedYear)
 
         {
-            return 300 - allowance;
+            return allowance - calculatePurchasesAmount(selectedYear);
         }
 
 
@@ -122,20 +116,34 @@ namespace ClothingAllowanceAppV1
 
         }
 
+        private float calculatePurchasesAmount(int selectedYear)
+        {
+            float totalPurchases = 0;
+            foreach (var purchase in purchases)
+            {
+                if (purchase.GetDate().Year == selectedYear)
+                {
+                    totalPurchases += purchase.GetAmount();
 
+                }
+            }
+
+            return totalPurchases;
+        }
 
 
 
         //Deducts the allowance from the user that is selected 
 
-        public void DeductFromAllowance(int amount, DateTime date, string description)
+        public void DeductFromAllowance(int amount, DateTime date, string description, int selectedYear)
 
         {
-            if (amount <= allowance)
-            {
-                allowance -= amount;
-                SetBonus();
+            if (amount <= CalculateAllowance(selectedYear))
+            {              
+                
+                MessageBox.Show("Purchase Date: " + date.Year);
                 purchases.Add(new Purchase(date, description, amount));
+                SetBonus(selectedYear);
             }
 
 
@@ -153,11 +161,11 @@ namespace ClothingAllowanceAppV1
 
 
         //create a method that checks if the user is able to make the purchase  
-        public bool AvailableAllowance(float purchaseAmount)
+        public bool AvailableAllowance(float purchaseAmount, int selectedYear)
 
         {
             // check if the remaining allowance is enough to make the purchase 
-            return purchaseAmount <= allowance;
+            return purchaseAmount <= CalculateAllowance(selectedYear);
         }
 
 
@@ -180,21 +188,27 @@ namespace ClothingAllowanceAppV1
 
 
         //summary of what the allowance holder has purchased  
-        public string PurchaseSummary()
+        public string PurchaseSummary(int selectedYear)
         {
             string purchaseSummary = "";
             foreach (var purchase in purchases)
             {
-                purchaseSummary += purchase.purchaseSummary() + "\n";
+                if (purchase.GetDate().Year== selectedYear)
+                {
+                    purchaseSummary += purchase.purchaseSummary() + "\n";
+                }
+           
             }
             return purchaseSummary;
         }
 
 
-        public string AllowanceHolderSummary()
+        public string AllowanceHolderSummary(int selectedYear)
 
         {
-            string allowanceHolderSummary = $"Name: {name}\n" + PurchaseSummary() + $"Allowance Remaining: ${allowance} \n";
+
+     
+            string allowanceHolderSummary = $"Name: {name}\n" + PurchaseSummary(selectedYear) + $"Allowance Remaining: ${CalculateAllowance(selectedYear)} \n";
             if (bonus)
             {
                 allowanceHolderSummary += $"Bonus Activity: {bonusActivity}\n";

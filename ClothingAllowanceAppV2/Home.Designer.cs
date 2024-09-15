@@ -72,7 +72,7 @@ namespace ClothingAllowanceAppV2
             // 
             // selectDatedpt
             // 
-            this.selectDatedpt.Location = new System.Drawing.Point(403, 358);
+            this.selectDatedpt.Location = new System.Drawing.Point(303, 348);
             this.selectDatedpt.Name = "selectDatedpt";
             this.selectDatedpt.Size = new System.Drawing.Size(200, 20);
             this.selectDatedpt.TabIndex = 7;

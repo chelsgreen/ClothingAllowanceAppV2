@@ -94,7 +94,6 @@ namespace ClothingAllowanceAppV2
             this.Summaryrtbx.Size = new System.Drawing.Size(293, 214);
             this.Summaryrtbx.TabIndex = 5;
             this.Summaryrtbx.Text = "                                         Summary\n";
-            this.Summaryrtbx.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label2
             // 

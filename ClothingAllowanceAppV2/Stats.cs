@@ -42,5 +42,7 @@ namespace ClothingAllowanceAppV2
         {
             statsSummaryrtbx.Text = am.GetAllowanceHolderSummary(allowancesummarycbx.Text);
         }
+
+     
     }
 }

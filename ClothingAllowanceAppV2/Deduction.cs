@@ -25,53 +25,80 @@ namespace ClothingAllowanceAppV2
             this.am = am;
         }
 
-        //Deducts the allowance amount from the holder then takes user back to home screen
+   
+        // Method to handle button click for deduction
         private void button1_Click(object sender, EventArgs e)
         {
+            // Gets the deduction amount from the numeric up-down control
             int deductionAmount = (int)deductionnud.Value;
 
-            // Call DeductAllowance method with required parameters
-            string result = am.DeductAllowance(selectedName, deductionAmount, dateTimePicker1.Value, selectedBonus, "Clothing Price $");
-
-            // Set the bonus activity for the selected holder
-            var allowanceHolder = am.GetAllowanceHolderByName(selectedName);
-            if (allowanceHolder != null)
+            // Check if the deduction amount exceeds the maximum allowed value
+            if (deductionAmount > 300)
             {
-                allowanceHolder.SetBonusActivity(selectedBonus);
+                //displays message back to the user 
+                MessageBox.Show("Error: You cannot enter a value greater than $300.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Stop further execution
             }
 
-            // Update the summary display
-            Summaryrtbx.Text = am.GetAllowanceHolderSummary(selectedName);
+            // Retrieve the selected allowance holder
+            var allowanceHolder = am.GetAllowanceHolderByName(selectedName);
 
-            // Show confirmation message
-            MessageBox.Show($"You have deducted ${deductionAmount} from the allowance.", "Deduction Confirmation");
+            if (allowanceHolder != null)
+            {
+                // Get the remaining allowance for the selected year
+                float remainingAllowance = allowanceHolder.CalculateAllowance(am.GetSelectYear());
 
-            // Navigate to the Home form
-            this.Hide();
-            Home myNewForm = new Home(am);
-            myNewForm.Closed += (s, args) => this.Close();
-            myNewForm.Show();
+                // Check if the deduction exceeds the available allowance
+                if (deductionAmount > remainingAllowance)
+                {
+                    //displays message back to the user 
+                    MessageBox.Show($"Error: Insufficient funds. You only have ${remainingAllowance} remaining.", "Invalid Deduction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Stop further execution
+                }
+
+                // Log or debug to ensure flow
+                Console.WriteLine($"Deduction of ${deductionAmount} is valid. Proceeding with deduction.");
+
+                // Proceed with the deduction if both checks pass
+                string result = am.DeductAllowance(selectedName, deductionAmount, dateTimePicker1.Value, selectedBonus, "Clothing Price $");
+
+                // Set the bonus activity for the selected holder
+                allowanceHolder.SetBonusActivity(selectedBonus);
+
+                // Update the summary display
+                Summaryrtbx.Text = am.GetAllowanceHolderSummary(selectedName);
+
+                // Show confirmation message
+                MessageBox.Show($"You have deducted ${deductionAmount} from the allowance.", "Deduction Confirmation");
+
+                // Navigate to the Home form
+                this.Hide();
+                Home myNewForm = new Home(am);
+                myNewForm.Closed += (s, args) => this.Close();
+                myNewForm.Show();
+            }
+            else
+            {
+                // If allowance holder is not found
+                MessageBox.Show("Error: Allowance holder not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-
+        //Takes user back to the home form
         private void exitbtn3_Click(object sender, EventArgs e)
         {
             this.Hide();
             var myform = new Stats(am);
             myform.Show();
-        }
+        }      
 
-        //displays to user the summary of the allowance holder
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            // Handle text changed event here
-        }
 
+        // Method to handle numeric up-down value changes
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            //stops user from entering a value that is higher than $300 
-            deductionnud.Maximum = 300;
+            deductionnud.Maximum = decimal.MaxValue;           
             deductionnud.Minimum = 0;
         }
+
     }
 }

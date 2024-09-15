@@ -33,6 +33,7 @@ namespace ClothingAllowanceAppV2
             this.statsSummaryrtbx = new System.Windows.Forms.RichTextBox();
             this.allowancesummarycbx = new System.Windows.Forms.ComboBox();
             this.title4lbl = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // exitbtn2
@@ -63,7 +64,7 @@ namespace ClothingAllowanceAppV2
             this.allowancesummarycbx.FormattingEnabled = true;
             this.allowancesummarycbx.Location = new System.Drawing.Point(37, 83);
             this.allowancesummarycbx.Name = "allowancesummarycbx";
-            this.allowancesummarycbx.Size = new System.Drawing.Size(334, 21);
+            this.allowancesummarycbx.Size = new System.Drawing.Size(153, 21);
             this.allowancesummarycbx.TabIndex = 2;
             this.allowancesummarycbx.SelectedIndexChanged += new System.EventHandler(this.allowancesummarycbx_SelectedIndexChanged);
             // 
@@ -78,12 +79,20 @@ namespace ClothingAllowanceAppV2
             this.title4lbl.Text = "Allowance Summary";
             this.title4lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(230, 84);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(141, 20);
+            this.dateTimePicker1.TabIndex = 4;
+            // 
             // Stats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(218)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.title4lbl);
             this.Controls.Add(this.allowancesummarycbx);
             this.Controls.Add(this.statsSummaryrtbx);
@@ -101,5 +110,6 @@ namespace ClothingAllowanceAppV2
         private System.Windows.Forms.RichTextBox statsSummaryrtbx;
         private System.Windows.Forms.ComboBox allowancesummarycbx;
         private System.Windows.Forms.Label title4lbl;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

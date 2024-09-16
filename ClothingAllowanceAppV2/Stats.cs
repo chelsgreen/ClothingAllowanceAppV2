@@ -43,6 +43,16 @@ namespace ClothingAllowanceAppV2
             statsSummaryrtbx.Text = am.GetAllowanceHolderSummary(allowancesummarycbx.Text);
         }
 
-     
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            am.SetYear(dateTimePicker1.Value.Year);
+
+            // Get the currently selected allowance holder
+            string selectedHolder = allowancesummarycbx.Text;
+
+            // Update the summary for the selected allowance holder
+            statsSummaryrtbx.Text = am.GetAllowanceHolderSummary(selectedHolder);
+        }
     }
 }
+

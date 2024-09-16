@@ -18,9 +18,7 @@ namespace ClothingAllowanceAppV2
             this.am = am;
             InitializeComponent();
 
-            selectDatedpt.Format = DateTimePickerFormat.Custom;
-            selectDatedpt.CustomFormat = "yyyy";
-            selectDatedpt.Value = new DateTime( am.GetSelectYear(),1,1);
+          
 
         }
 
@@ -50,11 +48,6 @@ namespace ClothingAllowanceAppV2
         private void Home_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void selectDatedpt_ValueChanged(object sender, EventArgs e)
-        {
-            am.SetYear(selectDatedpt.Value.Year);
         }
     }
 }

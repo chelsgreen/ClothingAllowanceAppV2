@@ -23,7 +23,9 @@ namespace ClothingAllowanceAppV2
             {
                 allowanceHolders.Add(new AllowanceHolder(name));
             }
+
         }
+
 
         //get the name of the allowance holder
         public List<string> GetAllHolderNames()
@@ -36,7 +38,7 @@ namespace ClothingAllowanceAppV2
         {
             return BONUS;
         }
-
+       
         public int GetSelectYear()
         {
 
@@ -130,7 +132,7 @@ namespace ClothingAllowanceAppV2
         }
         //method that will set bonus activity for a chosen allowance holder 
 
-        public string SetBonus(string searchName, string activity)
+        public string SetBonus(string searchName, string activity, int year)
 
         {
 
@@ -144,7 +146,7 @@ namespace ClothingAllowanceAppV2
 
                     // Assuming the SetBonus method is intended to set a bonus activity. 
 
-                    allowanceHolder.SetBonusActivity(activity);
+                    allowanceHolder.SetBonusActivity(activity, year);
 
                     return $"Set bonus activity for {searchName} to '{activity}'.";
 
@@ -155,7 +157,6 @@ namespace ClothingAllowanceAppV2
             return "Allowance holder not found.";
 
         }
-
         public void SetYear(int selectedYear)
         {
             this.selectedYear = selectedYear;

@@ -93,10 +93,5 @@ namespace ClothingAllowanceAppV2
             // Handle ComboBox selection change if needed
             
         }
-
-        private void bonuselectioncbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

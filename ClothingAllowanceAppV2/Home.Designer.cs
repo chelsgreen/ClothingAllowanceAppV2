@@ -32,7 +32,6 @@ namespace ClothingAllowanceAppV2
             this.titlelbl = new System.Windows.Forms.Label();
             this.homerightpbx = new System.Windows.Forms.PictureBox();
             this.homeleftpbx = new System.Windows.Forms.PictureBox();
-            this.selectDatedpt = new System.Windows.Forms.DateTimePicker();
             this.exitbtn = new RoundButton();
             this.statsbtn = new RoundButton();
             this.continuebtn = new RoundButton();
@@ -69,14 +68,6 @@ namespace ClothingAllowanceAppV2
             this.homeleftpbx.Size = new System.Drawing.Size(245, 251);
             this.homeleftpbx.TabIndex = 6;
             this.homeleftpbx.TabStop = false;
-            // 
-            // selectDatedpt
-            // 
-            this.selectDatedpt.Location = new System.Drawing.Point(303, 348);
-            this.selectDatedpt.Name = "selectDatedpt";
-            this.selectDatedpt.Size = new System.Drawing.Size(200, 20);
-            this.selectDatedpt.TabIndex = 7;
-            this.selectDatedpt.ValueChanged += new System.EventHandler(this.selectDatedpt_ValueChanged);
             // 
             // exitbtn
             // 
@@ -135,7 +126,6 @@ namespace ClothingAllowanceAppV2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(218)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.selectDatedpt);
             this.Controls.Add(this.homeleftpbx);
             this.Controls.Add(this.homerightpbx);
             this.Controls.Add(this.titlelbl);
@@ -160,6 +150,5 @@ namespace ClothingAllowanceAppV2
         private System.Windows.Forms.Label titlelbl;
         private System.Windows.Forms.PictureBox homerightpbx;
         private System.Windows.Forms.PictureBox homeleftpbx;
-        private System.Windows.Forms.DateTimePicker selectDatedpt;
     }
 }

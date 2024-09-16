@@ -31,12 +31,12 @@ namespace ClothingAllowanceAppV2
         {
             this.deductionnud = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.continuebtn3 = new RoundButton();
-            this.exitbtn3 = new RoundButton();
             this.Summaryrtbx = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.exitbtn3 = new RoundButton();
+            this.continuebtn3 = new RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.deductionnud)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,34 +59,6 @@ namespace ClothingAllowanceAppV2
             this.label1.TabIndex = 2;
             this.label1.Text = "Allowance Deduction";
             // 
-            // continuebtn3
-            // 
-            this.continuebtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(242)))), ((int)(((byte)(238)))));
-            this.continuebtn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.continuebtn3.ForeColor = System.Drawing.Color.Black;
-            this.continuebtn3.Location = new System.Drawing.Point(661, 390);
-            this.continuebtn3.Name = "continuebtn3";
-            this.continuebtn3.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.continuebtn3.Size = new System.Drawing.Size(127, 48);
-            this.continuebtn3.TabIndex = 3;
-            this.continuebtn3.Text = "Continue";
-            this.continuebtn3.UseVisualStyleBackColor = false;
-            this.continuebtn3.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // exitbtn3
-            // 
-            this.exitbtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(216)))), ((int)(((byte)(220)))));
-            this.exitbtn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitbtn3.ForeColor = System.Drawing.Color.Black;
-            this.exitbtn3.Location = new System.Drawing.Point(12, 390);
-            this.exitbtn3.Name = "exitbtn3";
-            this.exitbtn3.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.exitbtn3.Size = new System.Drawing.Size(127, 48);
-            this.exitbtn3.TabIndex = 4;
-            this.exitbtn3.Text = "Exit";
-            this.exitbtn3.UseVisualStyleBackColor = false;
-            this.exitbtn3.Click += new System.EventHandler(this.exitbtn3_Click);
-            // 
             // Summaryrtbx
             // 
             this.Summaryrtbx.Location = new System.Drawing.Point(260, 68);
@@ -94,6 +66,7 @@ namespace ClothingAllowanceAppV2
             this.Summaryrtbx.Size = new System.Drawing.Size(293, 214);
             this.Summaryrtbx.TabIndex = 5;
             this.Summaryrtbx.Text = "                                         Summary\n";
+            this.Summaryrtbx.TextChanged += new System.EventHandler(this.Summaryrtbx_TextChanged);
             // 
             // label2
             // 
@@ -110,6 +83,7 @@ namespace ClothingAllowanceAppV2
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label3
             // 
@@ -119,6 +93,34 @@ namespace ClothingAllowanceAppV2
             this.label3.Size = new System.Drawing.Size(116, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Enter date of Purchase";
+            // 
+            // exitbtn3
+            // 
+            this.exitbtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(216)))), ((int)(((byte)(220)))));
+            this.exitbtn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitbtn3.ForeColor = System.Drawing.Color.Black;
+            this.exitbtn3.Location = new System.Drawing.Point(12, 390);
+            this.exitbtn3.Name = "exitbtn3";
+            this.exitbtn3.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.exitbtn3.Size = new System.Drawing.Size(127, 48);
+            this.exitbtn3.TabIndex = 4;
+            this.exitbtn3.Text = "Exit";
+            this.exitbtn3.UseVisualStyleBackColor = false;
+            this.exitbtn3.Click += new System.EventHandler(this.exitbtn3_Click);
+            // 
+            // continuebtn3
+            // 
+            this.continuebtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(242)))), ((int)(((byte)(238)))));
+            this.continuebtn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.continuebtn3.ForeColor = System.Drawing.Color.Black;
+            this.continuebtn3.Location = new System.Drawing.Point(661, 390);
+            this.continuebtn3.Name = "continuebtn3";
+            this.continuebtn3.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.continuebtn3.Size = new System.Drawing.Size(127, 48);
+            this.continuebtn3.TabIndex = 3;
+            this.continuebtn3.Text = "Continue";
+            this.continuebtn3.UseVisualStyleBackColor = false;
+            this.continuebtn3.Click += new System.EventHandler(this.button1_Click);
             // 
             // Deduction
             // 

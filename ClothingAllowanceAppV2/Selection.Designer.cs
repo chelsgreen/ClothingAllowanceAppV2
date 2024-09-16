@@ -30,13 +30,13 @@ namespace ClothingAllowanceAppV2
         private void InitializeComponent()
         {
             this.title2lbl = new System.Windows.Forms.Label();
-            this.newholderbtn = new RoundButton();
-            this.nextbtn = new RoundButton();
-            this.backbtn = new RoundButton();
             this.allowanceholderlbl = new System.Windows.Forms.Label();
             this.bonuselectioncbx = new System.Windows.Forms.ComboBox();
             this.bonusselectionlbl = new System.Windows.Forms.Label();
             this.namecbx = new System.Windows.Forms.ComboBox();
+            this.newholderbtn = new RoundButton();
+            this.nextbtn = new RoundButton();
+            this.backbtn = new RoundButton();
             this.SuspendLayout();
             // 
             // title2lbl
@@ -50,6 +50,52 @@ namespace ClothingAllowanceAppV2
             this.title2lbl.TabIndex = 1;
             this.title2lbl.Text = "Please select an option";
             this.title2lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // allowanceholderlbl
+            // 
+            this.allowanceholderlbl.AutoSize = true;
+            this.allowanceholderlbl.Font = new System.Drawing.Font("HYGothic-Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.allowanceholderlbl.Location = new System.Drawing.Point(289, 107);
+            this.allowanceholderlbl.Name = "allowanceholderlbl";
+            this.allowanceholderlbl.Size = new System.Drawing.Size(226, 13);
+            this.allowanceholderlbl.TabIndex = 6;
+            this.allowanceholderlbl.Text = "Please select an Allowance Holder";
+            // 
+            // bonuselectioncbx
+            // 
+            this.bonuselectioncbx.AutoCompleteCustomSource.AddRange(new string[] {
+            "Splash Planet",
+            "Bowling",
+            "Movie"});
+            this.bonuselectioncbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
+            this.bonuselectioncbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bonuselectioncbx.ForeColor = System.Drawing.Color.Black;
+            this.bonuselectioncbx.FormattingEnabled = true;
+            this.bonuselectioncbx.Location = new System.Drawing.Point(332, 199);
+            this.bonuselectioncbx.Name = "bonuselectioncbx";
+            this.bonuselectioncbx.Size = new System.Drawing.Size(127, 21);
+            this.bonuselectioncbx.TabIndex = 7;
+            // 
+            // bonusselectionlbl
+            // 
+            this.bonusselectionlbl.AutoSize = true;
+            this.bonusselectionlbl.Font = new System.Drawing.Font("HYGothic-Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bonusselectionlbl.Location = new System.Drawing.Point(302, 173);
+            this.bonusselectionlbl.Name = "bonusselectionlbl";
+            this.bonusselectionlbl.Size = new System.Drawing.Size(195, 13);
+            this.bonusselectionlbl.TabIndex = 8;
+            this.bonusselectionlbl.Text = "Please select a bonus activity";
+            // 
+            // namecbx
+            // 
+            this.namecbx.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.namecbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
+            this.namecbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.namecbx.FormattingEnabled = true;
+            this.namecbx.Location = new System.Drawing.Point(332, 135);
+            this.namecbx.Name = "namecbx";
+            this.namecbx.Size = new System.Drawing.Size(127, 21);
+            this.namecbx.TabIndex = 9;
             // 
             // newholderbtn
             // 
@@ -93,53 +139,6 @@ namespace ClothingAllowanceAppV2
             this.backbtn.Text = "Back";
             this.backbtn.UseVisualStyleBackColor = false;
             this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
-            // 
-            // allowanceholderlbl
-            // 
-            this.allowanceholderlbl.AutoSize = true;
-            this.allowanceholderlbl.Font = new System.Drawing.Font("HYGothic-Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.allowanceholderlbl.Location = new System.Drawing.Point(289, 107);
-            this.allowanceholderlbl.Name = "allowanceholderlbl";
-            this.allowanceholderlbl.Size = new System.Drawing.Size(226, 13);
-            this.allowanceholderlbl.TabIndex = 6;
-            this.allowanceholderlbl.Text = "Please select an Allowance Holder";
-            // 
-            // bonuselectioncbx
-            // 
-            this.bonuselectioncbx.AutoCompleteCustomSource.AddRange(new string[] {
-            "Splash Planet",
-            "Bowling",
-            "Movie"});
-            this.bonuselectioncbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
-            this.bonuselectioncbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.bonuselectioncbx.ForeColor = System.Drawing.Color.Black;
-            this.bonuselectioncbx.FormattingEnabled = true;
-            this.bonuselectioncbx.Location = new System.Drawing.Point(332, 199);
-            this.bonuselectioncbx.Name = "bonuselectioncbx";
-            this.bonuselectioncbx.Size = new System.Drawing.Size(127, 21);
-            this.bonuselectioncbx.TabIndex = 7;
-            this.bonuselectioncbx.SelectedIndexChanged += new System.EventHandler(this.bonuselectioncbx_SelectedIndexChanged);
-            // 
-            // bonusselectionlbl
-            // 
-            this.bonusselectionlbl.AutoSize = true;
-            this.bonusselectionlbl.Font = new System.Drawing.Font("HYGothic-Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bonusselectionlbl.Location = new System.Drawing.Point(302, 173);
-            this.bonusselectionlbl.Name = "bonusselectionlbl";
-            this.bonusselectionlbl.Size = new System.Drawing.Size(195, 13);
-            this.bonusselectionlbl.TabIndex = 8;
-            this.bonusselectionlbl.Text = "Please select a bonus activity";
-            // 
-            // namecbx
-            // 
-            this.namecbx.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.namecbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(244)))), ((int)(((byte)(221)))));
-            this.namecbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.namecbx.FormattingEnabled = true;
-            this.namecbx.Location = new System.Drawing.Point(332, 135);
-            this.namecbx.Name = "namecbx";
-            this.namecbx.Size = new System.Drawing.Size(127, 21);
-            this.namecbx.TabIndex = 9;
             // 
             // Selection
             // 

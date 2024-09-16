@@ -12,108 +12,86 @@ namespace ClothingAllowanceAppV1
 {
 
     public class AllowanceHolder
-
     {
-
-        //attributes or fields 
+        // attributes or fields 
         private string name;
         private float allowance;
         private bool bonus;
         private List<Purchase> purchases;
         private string bonusActivity;
-        //methods and functions 
-        //constructs an allowance holder object  
+        private Dictionary<int, string> yearlyBonusActivity;
 
+        // Constructor
         public AllowanceHolder(string name)
-
         {
             this.name = name;
-            this.bonusActivity = bonusActivity;
+            this.bonusActivity = ""; // Initialize properly
             this.purchases = new List<Purchase>();
-            //Set the initial allowance to $300 
-            this.allowance = 300;
-            //set bonus to true 
-            bonus = true;
-
-
-
+            this.allowance = 300; // Initial allowance
+            this.bonus = true;
+            this.yearlyBonusActivity = new Dictionary<int, string>(); 
         }
 
-
-
-        //method that will set bonus activity 
-
-        public string SetBonus(string selectedActivity)
-
+        // Method that will set bonus activity
+        // Method to set bonus activity for a specific year
+        public void SetBonusActivity(string selectedActivity, int year)
         {
-
-            return "";
-
+            yearlyBonusActivity[year] = selectedActivity; // Store bonus activity for the year
         }
 
-
-
-        //Method used to set the allowance 
-
+        // Method used to set the allowance
         public void SetAllowance(float amount)
-
         {
-
             allowance = amount;
-
         }
 
-
-
-        //Gets the allowance the allowance holder want's to do 
-
+        // Gets the allowance the allowance holder wants to do
         public float GetAllowance()
-
         {
-
             return allowance;
-
         }
 
-
-
-        //Determines if the user is still intitiled to an allowance  
-
-        public void SetBonus(int selectedYear)
+        // Determines if the user is still entitled to a bonus
+       public bool SetBonus(int selectedYear)
         {
-            //if user is bellow $50 
-            if (CalculateAllowance(selectedYear) <= 50)
-
+           
+           //If user is below $50
+           if (CalculateAllowance(selectedYear) <= 50)
             {
                 bonus = false;
-            }
+                return false;
+                bonusActivity = ""; // Reset bonus activity
+           }
+            return true;  
+            
+       }
 
+        public string GetBonusActivity(int year)
+        {
+            if (yearlyBonusActivity.ContainsKey(year))
+            {
+                return yearlyBonusActivity[year];
+            }
+            return "No bonus activity";
         }
 
-
-        //Gets name of the child who has purchased clothes  
+        // Gets the name of the child who has purchased clothes  
         public string GetName()
         {
             return name;
         }
 
-        //calculates the total that the user has spent  
-
+        // Calculates the total that the user has spent  
         public float CalculateAllowance(int selectedYear)
-
         {
             return allowance - calculatePurchasesAmount(selectedYear);
         }
 
-
-
         public string Summary()
-
         {
-            //returns a string containing all the infomation the user need to know  
+            // Returns a string containing all the information the user needs to know  
             string summary = $"Name: {name}\nBonus: {bonus}";
             return summary;
-
         }
 
         private float calculatePurchasesAmount(int selectedYear)
@@ -124,109 +102,82 @@ namespace ClothingAllowanceAppV1
                 if (purchase.GetDate().Year == selectedYear)
                 {
                     totalPurchases += purchase.GetAmount();
-
                 }
             }
 
             return totalPurchases;
         }
 
-
-
-        //Deducts the allowance from the user that is selected 
-
+        // Deducts the allowance from the user that is selected 
         public void DeductFromAllowance(int amount, DateTime date, string description, int selectedYear)
-
         {
             if (amount <= CalculateAllowance(selectedYear))
-            {              
-                
+            {
                 MessageBox.Show("Purchase Date: " + date.Year);
                 purchases.Add(new Purchase(date, description, amount));
-                SetBonus(selectedYear);
+                SetBonus(selectedYear); // Check if bonus needs to be updated
             }
-
-
-
             else
             {
-
-                //Message back to the user saying they can not deduct more than $300  
+                // Message back to the user saying they cannot deduct more than available allowance  
                 Console.WriteLine("!!!! Cannot deduct more than the available allowance. !!!!");
-
             }
-
         }
 
-
-
-        //create a method that checks if the user is able to make the purchase  
+        // Create a method that checks if the user is able to make the purchase  
         public bool AvailableAllowance(float purchaseAmount, int selectedYear)
-
         {
-            // check if the remaining allowance is enough to make the purchase 
+            // Check if the remaining allowance is enough to make the purchase 
             return purchaseAmount <= CalculateAllowance(selectedYear);
         }
 
-
-        //sets the bonus activity for the user. 
-        public void SetBonusActivity(string bonusActivity)
-
-        {
-
-            this.bonusActivity = bonusActivity;
-
-        }
-
         // Gets the bonus of the allowance holder 
-
         public bool GetBonus()
-
         {
             return bonus;
         }
 
-
-        //summary of what the allowance holder has purchased  
+        // Summary of what the allowance holder has purchased  
         public string PurchaseSummary(int selectedYear)
         {
             string purchaseSummary = "";
             foreach (var purchase in purchases)
             {
-                if (purchase.GetDate().Year== selectedYear)
+                if (purchase.GetDate().Year == selectedYear)
                 {
                     purchaseSummary += purchase.purchaseSummary() + "\n";
                 }
-           
             }
             return purchaseSummary;
         }
 
-
+        // Summary of the allowance holder's status
         public string AllowanceHolderSummary(int selectedYear)
-
         {
+            string summary = $"Name: {name}\n" + PurchaseSummary(selectedYear) + $"Allowance Remaining: ${CalculateAllowance(selectedYear)} \n";
 
-     
-            string allowanceHolderSummary = $"Name: {name}\n" + PurchaseSummary(selectedYear) + $"Allowance Remaining: ${CalculateAllowance(selectedYear)} \n";
-            if (bonus)
+            // Display the bonus activity for the selected year
+            if (yearlyBonusActivity.ContainsKey(selectedYear))
             {
-                allowanceHolderSummary += $"Bonus Activity: {bonusActivity}\n";
+                summary += $"Bonus Activity: {yearlyBonusActivity[selectedYear]}\n";
             }
 
-            return allowanceHolderSummary;
+            if (SetBonus(selectedYear))
+            {
+                summary += "You are entitled to a bonus!\n";
+            }
+            else
+            {
+                summary += "You are not entitled to a bonus.\n";
+            }
 
+
+            return summary;
         }
 
-
-        public string ToString()
-
+        public override string ToString()
         {
-            return "";
+            return AllowanceHolderSummary(DateTime.Now.Year); // Or adjust according to needs
         }
-
-
-
     }
-
 }
